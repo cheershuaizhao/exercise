@@ -1,0 +1,36 @@
+'''
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+'''
+
+'''
+Permutation Problem. No for loop. Decide when to add '(' and when to add ')'.
+
+'''
+
+class Solution:
+    """
+    @param: n: n pairs
+    @return: All combinations of well-formed parentheses
+    """
+    def generateParenthesis(self, n):
+        # write your code here
+        if n <= 0:
+            return [""]
+        res = []
+        self.helper(n, 0, 0, res, [])
+        return res
+        
+        
+    def helper(self, n, nl, nr, res, temp):
+        if len(temp) == 2 * n:
+            res.append("".join(temp))
+            return
+
+        if nl < n:
+            temp.append('(')
+            self.helper(n, nl + 1, nr, res, temp)
+            del temp[-1]
+        if nl > nr:
+            temp.append(")")
+            self.helper(n, nl, nr + 1, res, temp)
+            del temp[-1]
