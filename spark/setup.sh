@@ -4,3 +4,4 @@
  # 3. vagrant global-status (to check running vagrant vms)
  # 4. vagrant halt (stop vms before turning off/logining out home os)
  # 5. vagrant destroy (destory the vm)
+ # 6. vagrant ssh (enter the vm)
